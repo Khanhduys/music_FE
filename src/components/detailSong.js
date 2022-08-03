@@ -189,21 +189,24 @@ var closeModalAlbum=()=>{
       </span> 
        </div>
         <>
-      <div className={page==1 && songToPlay.id!=undefined?"col-span-1 detail-song enable":"col-span-1 detail-song disable"}>
-      <div className=" w-full h-full relative bg-fixed bg-center bg-cover bg-no-repeat p-3">
+      <div className={page==1 && songToPlay.id!=undefined?"col-span-1 detail-song h-full enable":"col-span-1 detail-song disable"}>
+      <div className=" w-full h-full relative bg-fixed bg-center bg-cover bg-no-repeat p-3 flex items-center flex-col justify-center ">
+        <div className="w-full">
      <h3 className="text-cyan-500 text-left font-semibold">Now playing</h3>
      <h2  className="text-neutral-300 text-left font-light text-2xl">{songToPlay.id==undefined?"Chìm đắm trong âm nhạc": songToPlay.name}</h2>
    {/* chứa ảnh */}
-      <div className="mt-8 h-52 text-center">
+   </div>
+      <div className="mt-8 h-52 text-center w-full h-full">
+        <div>
      <img src={songToPlay.id==undefined? "images/diskBackground.jpg": songToPlay.links.images[1].url } alt="Alan Walker" className={playStatus==true && songToPlay.id!=undefined?"h-52 w-52 p-0 inline-block rounded-full animate-spin-slow":"h-52 w-52 p-0 inline-block rounded-full animate-spin-stop"}/>
-    
-   
+     </div>
 
      </div>
-     <div className="col-span-1 w-52 text-center inline-block mt-6 ">
+     <div className="col-span-1 w-52 text-center block mt-6 ">
     
     <h3 className="text-neutral-100 text-left font-light text-2xl inline">{songToPlay.id==undefined? "": songToPlay.author }</h3>
     </div>
+
       </div>
       </div>
 
