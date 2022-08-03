@@ -12,6 +12,7 @@ export const postRegisterAction =(data)=>{
               roleId:0
             })
             .then(res => {
+                alert(res.data)
              dispatch({ 
                 type:ActionTypes.REGISTER,
                 payload:res.data})

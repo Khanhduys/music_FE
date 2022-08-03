@@ -18,6 +18,9 @@ module.exports = {
         "author":"6.3rem",
         "option":"6.5rem",
         "author_name":"14.3rem"
+      },
+      margin:{
+        "margin_top_search":"1.3rem"
       }
       
     },

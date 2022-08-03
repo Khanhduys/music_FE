@@ -181,7 +181,7 @@ var closeModalAlbum=()=>{
 
 
        <div className={page==0 ?"h-9":"disable"}>
-       <input type="text" value={searchDetail} onChange={(e)=>detailInputSearch(e.target.value)} name="name" placeholder="tìm kiếm..." className="w-search text-l border-b-2 border-blue-400 outline-none focus:border-green-400  text-gray-400  bg-transparent inline-block   mt-1 " />
+       <input type="text" value={searchDetail} onChange={(e)=>detailInputSearch(e.target.value)} name="name" placeholder="tìm kiếm..." className="w-[73%] mt-margin_top_search text-l border-b-2 border-blue-400 outline-none focus:border-green-400  text-gray-400  bg-transparent inline-block   mt-1 " />
     <span className="inline ml-2  input-group-text  items-center right-28 top-11 text-base font-normal text-blue-400 text-center whitespace-nowrap rounded hover:cursor-pointer hover:text-green-700" id="basic-addon2"onClick={()=>search()} >
         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" className="w-4 inline mt-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
@@ -190,15 +190,15 @@ var closeModalAlbum=()=>{
        </div>
         <>
       <div className={page==1 && songToPlay.id!=undefined?"col-span-1 detail-song h-full enable":"col-span-1 detail-song disable"}>
-      <div className=" w-full h-full relative bg-fixed bg-center bg-cover bg-no-repeat p-3 flex items-center flex-col justify-center ">
+      <div className=" w-full h-full relative bg-fixed bg-center bg-cover bg-no-repeat p-3 flex items-center flex-col justify-around ">
         <div className="w-full">
      <h3 className="text-cyan-500 text-left font-semibold">Now playing</h3>
      <h2  className="text-neutral-300 text-left font-light text-2xl">{songToPlay.id==undefined?"Chìm đắm trong âm nhạc": songToPlay.name}</h2>
    {/* chứa ảnh */}
    </div>
-      <div className="mt-8 h-52 text-center w-full h-full">
+      <div className="h-[38%] text-center w-full h-full">
         <div>
-     <img src={songToPlay.id==undefined? "images/diskBackground.jpg": songToPlay.links.images[1].url } alt="Alan Walker" className={playStatus==true && songToPlay.id!=undefined?"h-52 w-52 p-0 inline-block rounded-full animate-spin-slow":"h-52 w-52 p-0 inline-block rounded-full animate-spin-stop"}/>
+     <img src={songToPlay.id==undefined? "images/diskBackground.jpg": songToPlay.links.images[1].url } alt="Alan Walker" className={playStatus==true && songToPlay.id!=undefined?"h-[50%] w-[50%] p-0 inline-block rounded-full animate-spin-slow":"h-[50%] w-[50%] p-0 inline-block rounded-full animate-spin-stop"}/>
      </div>
 
      </div>
@@ -213,7 +213,7 @@ var closeModalAlbum=()=>{
       {/*hiển thị danh sách bài hát*/}
       <div className={page==0 && enableAlbum==false?" col-span-1 list enable h-full":" col-span-1 list disable"}>
         
-      <div className="  grid grid-cols-2 place-items-center items-start w-full h-full relative bg-fixed bg-center bg-cover bg-no-repeat p-3" >
+      <div className="  grid grid-cols-2 place-items-center w-full h-full relative bg-fixed bg-center bg-cover bg-no-repeat p-3" >
        <div className="item  transform hover:scale-110 transition duration-300 relative">
       <img src="images/home.jpg" className={selectedItem==1?"image_of_list_light":"image_of_list"}  onClick={()=>{home()}} />
      <div className="detail"  onClick={()=>{home()}}><h4 className={selectedItem==1?"text-green-700":""}>Trang chủ</h4></div> 
@@ -239,12 +239,12 @@ var closeModalAlbum=()=>{
  
  </div>
  {/*album tự chọn */}
- <div className={page==0 && enableAlbum==true?"flex justify-around fixed w-96 ml-7 mt-0.5":"disable"}>
+ <div className={page==0 && enableAlbum==true?"fixed w-[29%] ml-[2.1%] mt-[2.1%]":"disable"}>
 <i className="fa fa-chevron-left  left-12 bottom-0 hover:cursor-pointer text-yellow-100 hover:text-green-700" aria-hidden="true" onClick={()=>dispatch(allActions.enableAlbumAction(false))}></i>
 <i class="fa fa-plus left-12 bottom-0 hover:cursor-pointer ml-80 text-yellow-100 hover:text-green-700" aria-hidden="true" onClick={()=>setEnableModalAlbum(true)}></i></div>
 
 
- <div className={page==0 && enableAlbum==true?" col-span-1  flex list enable scroll-smooth  mt-6 overflow-y-scroll h-96":" col-span-1 list disable"}>
+ <div className={page==0 && enableAlbum==true?" col-span-1 h-80  flex list enable scroll-smooth  mt-[13%] overflow-y-scroll":" col-span-1 list disable"}>
 
         <div className="  grid grid-cols-2 place-items-center items-start w-full h-full relative bg-fixed bg-center bg-cover bg-no-repeat p-3" >
       

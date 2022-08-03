@@ -51,7 +51,7 @@ var submitRegister=()=>{
   }
   else {
     dispatch(allActions.postRegisterAction(informRegister))
-    alert(messenger)
+
   }
 }
 
