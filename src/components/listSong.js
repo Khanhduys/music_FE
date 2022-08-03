@@ -69,7 +69,7 @@ useEffect(()=>{
 
 DataSongs.map((song,index)=>(
 
-  <tr key={index} className="row_of_song bg-slate-800 h-12 hover:bg-slate-500 hover:cursor-pointer" > 
+  <tr key={index} className="bg-slate-800 h-12 hover:bg-slate-500 hover:cursor-pointer" > 
 <td className={songToPlay.id==song.id? "w-20 text-center font-semibold text-green-700": "w-20 text-center font-semibold text-gray-400"} onClick={()=>{playSong(song,index+1)}}>{index+1}</td>
 <td className={songToPlay.id==song.id? "w-song_name text-left font-semibold text-green-700": "w-song_name text-left font-semibold text-gray-400"} onClick={()=>{playSong(song,index+1)}}>{song.name}</td>
 <td className={songToPlay.id==song.id? "w-author text-center font-semibold text-green-700": "w-author_name text-center font-semibold text-gray-400"} onClick={()=>{playSong(song,index+1)}}>{song.author}</td>
