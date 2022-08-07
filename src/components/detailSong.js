@@ -44,14 +44,14 @@ var search=()=>{
       return false;
   });
   if(songsFilter[0]!=undefined){
-  dispatch(allActions.listSong(songsFilter))}
+  dispatch(allActions.hotSong(songsFilter))}
   else {setEnableModal(true)}
 
   }
  
 }
 var get20month=()=>{
-  dispatch(allActions.listSong(getMultipleRandom(Data, 10)));
+  dispatch(allActions.hotSong(getMultipleRandom(DataSongs, 10)));
   dispatch(allActions.selectedItemAction(3))
 }
 var detailInputSearch =(data)=>{
@@ -59,7 +59,7 @@ var detailInputSearch =(data)=>{
 }
 
 var get10week=()=>{
- dispatch(allActions.listSong(getMultipleRandom(Data, 84)));
+ dispatch(allActions.hotSong(getMultipleRandom(DataSongs, 10)));
  dispatch(allActions.selectedItemAction(2))
 }
 var getCustomAlbum=()=>{

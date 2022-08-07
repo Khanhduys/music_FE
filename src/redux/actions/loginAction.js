@@ -4,7 +4,7 @@ import axios from "axios"
 export const loginAction =(data)=>{
     return (dispatch)=>{
         return (
-            axios.post("http://localhost:8080/get-user",{
+            axios.post(`${process.env.REACT_APP_BACKEND_URL}/get-user`,{
             
               passWord:data.pass,
               email:data.email,

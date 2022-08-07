@@ -18,7 +18,9 @@ import {
 
 function App() {
   const dispatch=useDispatch();
-  
+  useEffect(()=>{
+    dispatch(allActions.listSong())
+  },[])
 
 
   return (

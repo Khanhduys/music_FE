@@ -5,7 +5,7 @@ import { data } from "autoprefixer"
 export const addSong =(data)=>{
     return (dispatch)=>{
         return (
-            axios.post("http://localhost:8080/add-song",{
+            axios.post(`${process.env.REACT_APP_BACKEND_URL}/add-song`,{
               list_id:data.list_id,
               user_id:data.user_id,
               song_id:data.song_id
@@ -22,7 +22,7 @@ export const addSong =(data)=>{
 export const getSong =(data)=>{
     return (dispatch)=>{
         return (
-            axios.post("http://localhost:8080/get-songs",{
+            axios.post(`${process.env.REACT_APP_BACKEND_URL}/get-songs`,{
               list_id:data.list_id,
               user_id:data.user_id,
              
@@ -41,7 +41,7 @@ export const deleteSong =(data)=>{
     console.log(data)
     return (dispatch)=>{
         return (
-            axios.post("http://localhost:8080/delete-song",{
+            axios.post(`${process.env.REACT_APP_BACKEND_URL}/delete-song`,{
               list_id:data.list_id,
               user_id:data.user_id,
               id:data.id   

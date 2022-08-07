@@ -4,7 +4,7 @@ import axios from "axios"
 export const postRegisterAction =(data)=>{
     return (dispatch)=>{
         return (
-            axios.post("http://localhost:8080/add-user",{
+            axios.post(`${process.env.REACT_APP_BACKEND_URL}/add-user`,{
               userName:data.username,
               passWord:data.pass,
               email:data.email,

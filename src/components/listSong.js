@@ -15,7 +15,7 @@ function ListSongs() {
     user_id:user.id==undefined?-1:user.id,
   })
  
-
+console.log(DataSongs)
  
 useEffect(()=>{
 

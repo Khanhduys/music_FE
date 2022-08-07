@@ -11,6 +11,7 @@ import { selectedAlbumAction } from "./selectAlbumAction"
 import { addSong } from "./FavoriteSongAction"
 import { getSong } from "./FavoriteSongAction"
 import { deleteSong } from "./FavoriteSongAction"
+import { hotSong } from "./listSongAction"
 const allActions = {
     playSong,
     listSong,
@@ -27,7 +28,8 @@ const allActions = {
     selectedAlbumAction,
     addSong,
     getSong,
-    deleteSong
+    deleteSong,
+    hotSong
 }
 
 export default allActions

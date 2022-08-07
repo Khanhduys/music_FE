@@ -1,16 +1,17 @@
 import  {ActionTypes} from "../constain"
 import DataSongs from "../../data/songs.json"
-const getData=(DataSongs)=>{
-    var listSong=[]
+// const getData=(DataSongs)=>{
+//     var listSong=[]
    
           
-        DataSongs.map((song,index)=>{
-               listSong=[...listSong,{...song,index:index+1}]
-         })
-         return listSong
-}
+//         DataSongs.map((song,index)=>{
+//                listSong=[...listSong,{...song,index:index+1}]
+//          })
+//          return listSong
+// }
 const initialState={
-    list:getData(DataSongs)
+  //  list:getData(DataSongs)
+  list:[]
 }
 
 const listSongReducer= (state=initialState,action)=>{
@@ -18,12 +19,11 @@ const listSongReducer= (state=initialState,action)=>{
    case ActionTypes.GET_LIST:
     var listSong=[]
     action.payload.map((data,index)=>{
-               listSong=[...listSong,{...data,index:index+1}]
-        
-     })
+                listSong=[...listSong,{...data,index:index+1}]
+             })
+     console.log(listSong)
       return {
-          ...state,
-          list:listSong
+        list:listSong
       }
     
     case ActionTypes.GET_SONG:
