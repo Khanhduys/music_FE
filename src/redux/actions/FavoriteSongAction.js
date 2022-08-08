@@ -21,6 +21,7 @@ export const addSong =(data)=>{
 
 export const getSong =(data)=>{
     return (dispatch)=>{
+     
         return (
             axios.post(`${process.env.REACT_APP_BACKEND_URL}/get-songs`,{
               list_id:data.list_id,
@@ -28,6 +29,7 @@ export const getSong =(data)=>{
              
             })
             .then(res => {
+             
              dispatch({ 
                 type:ActionTypes.GET_SONG,
                 payload:res.data})

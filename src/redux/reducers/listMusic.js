@@ -1,17 +1,8 @@
 import  {ActionTypes} from "../constain"
 import DataSongs from "../../data/songs.json"
-// const getData=(DataSongs)=>{
-//     var listSong=[]
-   
-          
-//         DataSongs.map((song,index)=>{
-//                listSong=[...listSong,{...song,index:index+1}]
-//          })
-//          return listSong
-// }
+import { useSelector } from "react-redux"
 const initialState={
-  //  list:getData(DataSongs)
-  list:[]
+  list:DataSongs
 }
 
 const listSongReducer= (state=initialState,action)=>{
@@ -30,9 +21,10 @@ const listSongReducer= (state=initialState,action)=>{
         var listSong=[]
         var count=0
          action.payload.map((data)=>{
-               
-            state.list.map((song)=>{
-                if(  data.song_id==song.id){
+        
+          DataSongs.map((song)=>{
+            
+                if(  data.song_id-1==song.id){
                     count+=1
                     listSong=[...listSong,{...song,index:count,idDB:data.id,idList:data.list_id}]
                 }

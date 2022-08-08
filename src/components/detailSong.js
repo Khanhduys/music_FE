@@ -50,17 +50,19 @@ var search=()=>{
   }
  
 }
-var get20month=()=>{
-  dispatch(allActions.hotSong(getMultipleRandom(DataSongs, 10)));
-  dispatch(allActions.selectedItemAction(3))
+var get20month=async()=>{
+ await dispatch(allActions.listSong())
+ await dispatch(allActions.hotSong(getMultipleRandom(DataSongs, 10)));
+ await dispatch(allActions.selectedItemAction(3))
 }
 var detailInputSearch =(data)=>{
   setSearchDetail(data)
 }
 
-var get10week=()=>{
- dispatch(allActions.hotSong(getMultipleRandom(DataSongs, 10)));
- dispatch(allActions.selectedItemAction(2))
+var get10week=async()=>{
+ await dispatch(allActions.listSong())
+await dispatch(allActions.hotSong(getMultipleRandom(DataSongs, 10)));
+ await dispatch(allActions.selectedItemAction(2))
 }
 var getCustomAlbum=()=>{
   dispatch(allActions.selectedItemAction(4))
@@ -93,8 +95,9 @@ var enableOptionAlbum =(id)=>{
   else if (optionAlbum==1){setOptionAlbum(2)}
 }
 var selectedIDAlbum = async(id)=>{
+ 
   await dispatch(allActions.selectedAlbumAction(id))
-  await dispatch(allActions.getSong({...album,list_id:id}))
+ await dispatch(allActions.getSong({...album,list_id:id}))
  
 }
 
