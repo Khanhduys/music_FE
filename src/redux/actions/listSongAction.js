@@ -19,7 +19,6 @@ export const topMonth=()=>{
         return (
             axios.get(`${process.env.REACT_APP_BACKEND_URL}/top-month`)
             .then(res => {
-                console.log(res.data)
              dispatch({ 
                 type:ActionTypes.TOP_MONTH,
                 payload:res.data})
