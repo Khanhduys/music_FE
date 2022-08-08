@@ -15,7 +15,7 @@ function ListSongs() {
     user_id:user.id==undefined?-1:user.id,
   })
  
-console.log(DataSongs)
+
  
 useEffect(()=>{
 
@@ -44,7 +44,7 @@ useEffect(()=>{
   }
 
   var deleteSong=async(idDB,idList)=>{
-    console.log(idList)
+   
   await dispatch(allActions.deleteSong({...idUser,id:idDB,list_id:idList}))
   await dispatch(allActions.getSong({...idUser,list_id:idList}))
   }

@@ -21,7 +21,7 @@ const listSongReducer= (state=initialState,action)=>{
     action.payload.map((data,index)=>{
                 listSong=[...listSong,{...data,index:index+1}]
              })
-     console.log(listSong)
+     
       return {
         list:listSong
       }
@@ -38,7 +38,7 @@ const listSongReducer= (state=initialState,action)=>{
                 }
               })
           })
-          console.log(listSong)
+    
         return {
            
             list:listSong

@@ -38,7 +38,7 @@ export const getSong =(data)=>{
 }
 
 export const deleteSong =(data)=>{
-    console.log(data)
+   
     return (dispatch)=>{
         return (
             axios.post(`${process.env.REACT_APP_BACKEND_URL}/delete-song`,{

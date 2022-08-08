@@ -33,7 +33,7 @@ if(user.userName!=undefined){
   setEnableLogout(!enableLogout)
 }
 }
-console.log(goToLogInOut)
+
 // var songsPage=()=>{
   
 //   setGoToLogInOut(false)

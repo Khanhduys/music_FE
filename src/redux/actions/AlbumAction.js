@@ -22,7 +22,7 @@ export const addAlbum =(data)=>{
 }
 
 export const updateAlbum =(data)=>{
-    console.log(data)
+   
     return (dispatch)=>{
         return (
             axios.post(`${process.env.REACT_APP_BACKEND_URL}/update-list`,{
