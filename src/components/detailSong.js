@@ -191,7 +191,7 @@ var closeModalAlbum=()=>{
       </span> 
        </div>
         <>
-      <div className={page==1 && songToPlay.id!=undefined?"col-span-1 detail-song h-full enable":"col-span-1 detail-song disable"}>
+      <div className={page==1 ?"col-span-1 detail-song h-full enable":"col-span-1 detail-song disable"}>
       <div className=" w-full h-full relative bg-fixed bg-center bg-cover bg-no-repeat p-3 flex items-center flex-col justify-around ">
         <div className="w-full">
      <h3 className="text-cyan-500 text-left font-semibold">Now playing</h3>
