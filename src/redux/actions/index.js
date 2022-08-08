@@ -1,5 +1,5 @@
 import { playSong } from "./playSongAction"
-import { listSong } from "./listSongAction"
+import { listSong ,topMonth,topWeek,findSong} from "./listSongAction"
 import { animationDisk } from "./animationDisk"
 import { enablePageAction } from "./enablePageAction"
 import { selectedItemAction } from "./selectedItemAction"
@@ -11,7 +11,7 @@ import { selectedAlbumAction } from "./selectAlbumAction"
 import { addSong } from "./FavoriteSongAction"
 import { getSong } from "./FavoriteSongAction"
 import { deleteSong } from "./FavoriteSongAction"
-import { hotSong } from "./listSongAction"
+
 const allActions = {
     playSong,
     listSong,
@@ -29,7 +29,10 @@ const allActions = {
     addSong,
     getSong,
     deleteSong,
-    hotSong
+      topMonth,
+       topWeek,
+       findSong
+
 }
 
 export default allActions

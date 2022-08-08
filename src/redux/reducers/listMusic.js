@@ -16,7 +16,7 @@ const listSongReducer= (state=initialState,action)=>{
       return {
         list:listSong
       }
-    
+      
     case ActionTypes.GET_SONG:
         var listSong=[]
         var count=0
@@ -30,11 +30,33 @@ const listSongReducer= (state=initialState,action)=>{
                 }
               })
           })
+          
+      return {
+        list:listSong
+      }
     
-        return {
-           
-            list:listSong
-        }
+          case ActionTypes.TOP_MONTH:
+            var listSong=[]
+            action.payload.map((data,index)=>{
+                        listSong=[...listSong,{...data,index:index+1}]
+                     })
+             
+              return {
+                list:listSong
+              }
+
+              case ActionTypes.TOP_WEEK:
+                var listSong=[]
+                action.payload.map((data,index)=>{
+                            listSong=[...listSong,{...data,index:index+1}]
+                         })
+                 
+                  return {
+                    list:listSong
+                  }
+
+
+    
 
  
  default : return state

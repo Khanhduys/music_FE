@@ -14,10 +14,41 @@ export const listSong=()=>{
     } 
 }
 
-export const hotSong=(list)=>dispatch=>{
+export const topMonth=()=>{
+    return (dispatch)=>{
+        return (
+            axios.get(`${process.env.REACT_APP_BACKEND_URL}/top-month`)
+            .then(res => {
+                console.log(res.data)
+             dispatch({ 
+                type:ActionTypes.TOP_MONTH,
+                payload:res.data})
+            })
+            .catch(error => console.log(error))
+        )
+    } 
+}
+
+export const topWeek=()=>{
+    return (dispatch)=>{
+        return (
+            axios.get(`${process.env.REACT_APP_BACKEND_URL}/top-week`)
+            .then(res => {
+                console.log(res.data)
+             dispatch({ 
+                type:ActionTypes.TOP_WEEK,
+                payload:res.data})
+            })
+            .catch(error => console.log(error))
+        )
+    } 
+}
+
+export const findSong=(song)=>dispatch=>{
+  
     dispatch({
-        type:ActionTypes.GET_LIST,
-        payload:list
-     })
+       type:ActionTypes.GET_LIST,
+       payload:song
+    })
 }
 

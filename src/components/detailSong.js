@@ -44,24 +44,24 @@ var search=()=>{
       return false;
   });
   if(songsFilter[0]!=undefined){
-  dispatch(allActions.hotSong(songsFilter))}
+  dispatch(allActions.findSong(songsFilter))}
   else {setEnableModal(true)}
 
   }
  
 }
-var get20month=async()=>{
- await dispatch(allActions.listSong())
- await dispatch(allActions.hotSong(getMultipleRandom(DataSongs, 10)));
- await dispatch(allActions.selectedItemAction(3))
+var get20month=()=>{
+
+ dispatch(allActions.topMonth());
+ dispatch(allActions.selectedItemAction(3))
 }
 var detailInputSearch =(data)=>{
   setSearchDetail(data)
 }
 
 var get10week=async()=>{
- await dispatch(allActions.listSong())
-await dispatch(allActions.hotSong(getMultipleRandom(DataSongs, 10)));
+ 
+await dispatch(allActions.topWeek());
  await dispatch(allActions.selectedItemAction(2))
 }
 var getCustomAlbum=()=>{
@@ -95,7 +95,6 @@ var enableOptionAlbum =(id)=>{
   else if (optionAlbum==1){setOptionAlbum(2)}
 }
 var selectedIDAlbum = async(id)=>{
- 
   await dispatch(allActions.selectedAlbumAction(id))
  await dispatch(allActions.getSong({...album,list_id:id}))
  

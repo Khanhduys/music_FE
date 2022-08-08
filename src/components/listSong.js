@@ -80,7 +80,7 @@ DataSongs.map((song,index)=>(
 <li className='option_item  hover:text-green-700 hover: cursor-auto' > 
 <a href={song.url}><i className="fa fa-download" style={{ display: "inline", marginLeft: "-0.8rem"}} aria-hidden="true"><p style={{ display: "inline", marginLeft: "0.5rem"}}>Tải về</p></i> </a>
 </li>
-<li className={user.id==undefined || listAlbum[0]==undefined?"hidden":"option_item hover:cursor-pointer show-list-custom-album relative"} onMouseEnter={()=>{setSongId(song.id)}}> 
+<li className={user.id==undefined || listAlbum[0]==undefined?"hidden":"option_item hover:cursor-pointer show-list-custom-album relative"} onMouseEnter={()=>{setSongId(song.id+1)}}> 
 <div className='w-full h-full m-0 p-0 hover:text-green-700 '>
 <i className="fa fa-heart" style={{ display: "inline", marginLeft: "0.5rem"}} aria-hidden="true"><p style={{ display: "inline", marginLeft: "0.5rem"}}>Yêu thích</p></i></div>
 <div className='show-list-album'>
