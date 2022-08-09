@@ -45,7 +45,10 @@ var search=()=>{
       return false;
   });
   if(songsFilter[0]!=undefined){
-  dispatch(allActions.findSong(songsFilter))}
+  dispatch(allActions.findSong(songsFilter))
+  dispatch(allActions.enableMobileMenu(false))
+
+}
   else {setEnableModal(true)}
 
   }
@@ -196,7 +199,7 @@ var closeModalAlbum=()=>{
        </div>
         <>
       <div className={page==1 ?"col-span-1 detail-song h-full enable":"col-span-1 detail-song disable"}>
-      <div className=" w-full laptop:h-full lg:h-[80%] relative bg-fixed bg-center bg-cover bg-no-repeat p-3 flex items-center flex-col justify-around ">
+      <div className=" w-full laptop:h-full lg:h-[90%] relative bg-fixed bg-center bg-cover bg-no-repeat p-3 flex items-center flex-col justify-around ">
         <div className="w-full">
      <h3 className="text-cyan-500 text-left font-semibold">Now playing</h3>
      <h2  className="text-neutral-300 text-left font-light text-2xl">{songToPlay.id==undefined?"Chìm đắm trong âm nhạc": songToPlay.name}</h2>
@@ -223,7 +226,7 @@ var closeModalAlbum=()=>{
       {/*hiển thị danh sách bài hát*/}
       <div className={page==0 && enableAlbum==false?" col-span-1 list enable h-full":" col-span-1 list disable"}>
         
-      <div className="  grid grid-cols-2 place-items-center w-full laptop:h-full lg:h-[80%] relative bg-fixed bg-center bg-cover bg-no-repeat p-3" >
+      <div className="  grid grid-cols-2 place-items-center w-full laptop:h-full lg:h-[83%] relative bg-fixed bg-center bg-cover bg-no-repeat p-3" >
        <div className="item  transform hover:scale-110 transition duration-300 relative">
       <img src="images/home.jpg" className={selectedItem==1?"image_of_list_light":"image_of_list"}  onClick={()=>{home()}} />
      <div className="detail"  onClick={()=>{home()}}><h4 className={selectedItem==1?"text-green-700":""}>Trang chủ</h4></div> 
