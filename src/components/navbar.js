@@ -9,18 +9,26 @@ const [statusIcon, setStatusIcon]=useState(false)
 
 const dispatch=useDispatch();
 const page =useSelector(state=>state.page.status)
+const enableMobileMenu=useSelector(state=>state.enableMobileMenu.status)
 const [enableLogout,setEnableLogout]=useState(false)
 const DataSongs = useSelector(state =>state.listSong.list)
 const user=useSelector(state=>state.login.user)
 const  [goToLogInOut,setGoToLogInOut]=useState(false)
 const enableAlbum=useSelector(state=>state.album.state)
-var setHomeStatus=()=> {setStatusIcon(!statusIcon)
+var setHomeStatus=()=> {
+  
+  setStatusIcon(!statusIcon)
 if(page==0){dispatch(allActions.enablePageAction(1))
 
 }
 
 else if(page==1){dispatch(allActions.enablePageAction(0))}
 
+}
+
+var setEnableMobileMenu=()=>{
+  setStatusIcon(!statusIcon)
+  dispatch(allActions.enableMobileMenu(!enableMobileMenu))
 }
 
 
@@ -57,12 +65,14 @@ var LogOut=()=>{
       <div className="text-3xl pt-7 relative ">
      
 
-        <i className={goToLogInOut==true && user.userName==undefined?"disable":(statusIcon?"fa fa-bars absolute left-12 bottom-0 hover:cursor-pointer hover:text-green-700 transform origin-center rotate-360 transiton duration-300":"fa fa-bars absolute left-12 bottom-0 hover:cursor-pointer hover:text-green-700 transform origin-center rotate-180 transiton duration-300" )} aria-hidden="true" onClick={()=>setHomeStatus()}></i>
+        <i className={goToLogInOut==true && user.userName==undefined?"disable":(statusIcon?"fa fa-bars absolute lg:hidden left-12 bottom-0 hover:cursor-pointer hover:text-green-700 lg:hidden transform origin-center rotate-360 transiton duration-300":"fa fa-bars lg:hidden absolute left-12 bottom-0 hover:cursor-pointer hover:text-green-700 transform origin-center rotate-180 transiton duration-300" )} aria-hidden="true" onClick={()=>setHomeStatus()}></i>
+         <i className={goToLogInOut==true && user.userName==undefined?"disable":(statusIcon?"fa fa-bars absolute laptop:hidden left-12 bottom-0 hover:cursor-pointer hover:text-green-700 transform origin-center rotate-360 transiton duration-300":"fa fa-bars laptop:hidden absolute left-12 bottom-0 hover:cursor-pointer hover:text-green-700 transform origin-center rotate-180 transiton duration-300" )} aria-hidden="true" onClick={()=>setEnableMobileMenu()}></i> 
+
         {/* <Link to='/'> <i className={goToLogInOut==false ?"disable":"fa fa-chevron-left absolute left-12 bottom-0 hover:cursor-pointer hover:text-green-700"} aria-hidden="true" onClick={()=>songsPage()}></i></Link> */}
      
-       <i className='fa fa-spotify mr-5'></i>Spotify
+       <i className='fa fa-spotify mr-5 lg:hidden'></i>Spotify
      {
-      user.userName!=undefined?<i className="fa fa-user  absolute right-12 bottom-0 hover:cursor-pointer hover:text-green-700 login_logout" aria-hidden="true" onClick={()=>User()}><h3 className="text-lg ml-4 inline">{user.userName==undefined?"":`xin chào, ${user.userName}`}</h3></i>: <Link to='/user'><i class="fa fa-user  absolute right-12 bottom-0 hover:cursor-pointer hover:text-green-700 login_logout" aria-hidden="true" onClick={()=>User()}><h3 className="text-lg ml-4 inline">{user.userName==undefined?"":`xin chào, ${user.userName}`}</h3></i></Link>
+      user.userName!=undefined?<i className="fa fa-user  absolute right-12 bottom-0 hover:cursor-pointer hover:text-green-700 login_logout" aria-hidden="true" onClick={()=>User()}><h3 className="text-lg ml-4 inline">{user.userName==undefined?"":`${user.userName}`}</h3></i>: <Link to='/user'><i class="fa fa-user  absolute right-12 bottom-0 hover:cursor-pointer hover:text-green-700 login_logout" aria-hidden="true" onClick={()=>User()}><h3 className="text-lg ml-4 inline">{user.userName==undefined?"":`xin chào, ${user.userName}`}</h3></i></Link>
      }
   
   {/* <Link to='/user'><i class="fa fa-user  absolute right-12 bottom-0 hover:cursor-pointer hover:text-green-700 login_logout" aria-hidden="true" onClick={()=>User()}><h3 className="text-lg ml-4 inline">{user.userName==undefined?"":`xin chào, ${user.userName}`}</h3></i></Link> */}

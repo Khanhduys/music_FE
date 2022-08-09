@@ -11,6 +11,7 @@ import { selectedAlbumAction } from "./selectAlbumAction"
 import { addSong } from "./FavoriteSongAction"
 import { getSong } from "./FavoriteSongAction"
 import { deleteSong } from "./FavoriteSongAction"
+import { enableMobileMenu } from "./enablePageAction"
 
 const allActions = {
     playSong,
@@ -31,7 +32,8 @@ const allActions = {
     deleteSong,
       topMonth,
        topWeek,
-       findSong
+       findSong,
+       enableMobileMenu
 
 }
 

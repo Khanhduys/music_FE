@@ -27,6 +27,7 @@ useEffect(()=>{
    dispatch(allActions.playSong({...song,index:index}))
    dispatch(allActions.animationDisk(true))
    dispatch(allActions.enablePageAction(1))
+   dispatch(allActions.enableMobileMenu(true))
   }
  
   var addSong=async(album_id)=>{
@@ -50,7 +51,7 @@ useEffect(()=>{
   }
 
     return (
-      <div className="col-span-2 scroll-smooth  overflow-y-scroll  ">
+      <div className="col-span-2 scroll-smooth  overflow-y-scroll  lg:w-[100%] lg:h-[100%] lg:absolute lg:z-0 ">
 
  <table className="table-auto max-h-full   scroll-smooth    block ">
   <thead className=" flex items-center justify-between font-semibold text-slate-50 h-12 sticky top-0 bg-slate-700  ">

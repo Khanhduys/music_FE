@@ -6,3 +6,12 @@ export const enablePageAction=(status)=>dispatch=>{
        payload:status
     })
 }
+
+
+export const enableMobileMenu=(status)=>dispatch=>{
+  
+    dispatch({
+       type:ActionTypes.ENABLE_MOBILE_MENU,
+       payload:status
+    })
+}

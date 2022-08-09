@@ -29,9 +29,10 @@ const selectedAlbum =useSelector(state=>state.selectedAlbum.status)
  const [enableModalAlbum,setEnableModalAlbum]=useState(false)
 
 
-var home=()=>{
-  dispatch(allActions.listSong(Data));
-  dispatch(allActions.selectedItemAction(1))
+var home=async ()=>{
+ await dispatch(allActions.listSong(Data));
+ await dispatch(allActions.selectedItemAction(1))
+ dispatch(allActions.enableMobileMenu(false))
 }
 var search=()=>{
   if(searchDetail!=""){
@@ -50,10 +51,11 @@ var search=()=>{
   }
  
 }
-var get20month=()=>{
+var get20month=async()=>{
 
- dispatch(allActions.topMonth());
- dispatch(allActions.selectedItemAction(3))
+ await dispatch(allActions.topMonth());
+ await dispatch(allActions.selectedItemAction(3))
+ dispatch(allActions.enableMobileMenu(false))
 }
 var detailInputSearch =(data)=>{
   setSearchDetail(data)
@@ -63,6 +65,7 @@ var get10week=async()=>{
  
 await dispatch(allActions.topWeek());
  await dispatch(allActions.selectedItemAction(2))
+ dispatch(allActions.enableMobileMenu(false))
 }
 var getCustomAlbum=()=>{
   dispatch(allActions.selectedItemAction(4))
@@ -97,6 +100,7 @@ var enableOptionAlbum =(id)=>{
 var selectedIDAlbum = async(id)=>{
   await dispatch(allActions.selectedAlbumAction(id))
  await dispatch(allActions.getSong({...album,list_id:id}))
+ dispatch(allActions.enableMobileMenu(false))
  
 }
 
@@ -130,7 +134,7 @@ var closeModalAlbum=()=>{
 }
 
     return (
-      <div  style={{backgroundImage:`linear-gradient(rgba(15,23,42, 0.8), rgba(51, 65, 85, 0.8)), url(${songToPlay.id==undefined?"images/background.jpeg": songToPlay.links.images[0].url})`}}>
+      <div className="lg:w-[100%] lg:absolute lg:h-[100%] lg:z-20 laptop:h-[100%]"  style={{backgroundImage:`linear-gradient(rgba(15,23,42, 0.8), rgba(51, 65, 85, 0.8)), url(${songToPlay.id==undefined?"images/background.jpeg": songToPlay.links.images[0].url})`}}>
         <div id="popup-modal" tabindex="-1" className={enableModal==true?"enable-modal flex items-center justify-center bg-black bg-opacity-25 fixed m-auto overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full":"disable"}>
     <div className={enableModal==true?"enable-modal-detail relative p-4 w-full max-w-md h-full md:h-auto":"disable-modal-detail"}>
         <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -192,7 +196,7 @@ var closeModalAlbum=()=>{
        </div>
         <>
       <div className={page==1 ?"col-span-1 detail-song h-full enable":"col-span-1 detail-song disable"}>
-      <div className=" w-full h-full relative bg-fixed bg-center bg-cover bg-no-repeat p-3 flex items-center flex-col justify-around ">
+      <div className=" w-full laptop:h-full lg:h-[80%] relative bg-fixed bg-center bg-cover bg-no-repeat p-3 flex items-center flex-col justify-around ">
         <div className="w-full">
      <h3 className="text-cyan-500 text-left font-semibold">Now playing</h3>
      <h2  className="text-neutral-300 text-left font-light text-2xl">{songToPlay.id==undefined?"Chìm đắm trong âm nhạc": songToPlay.name}</h2>
@@ -204,18 +208,22 @@ var closeModalAlbum=()=>{
      </div>
 
      </div>
-     <div className="col-span-1 w-52 text-center block mt-6 ">
+     <div className="col-span-1 w-52 text-center block mt-6 w-[100%] flex items-center justify-center">
     
     <h3 className="text-neutral-100 text-left font-light text-2xl inline">{songToPlay.id==undefined? "": songToPlay.author }</h3>
     </div>
 
       </div>
+      <div className="laptop:hidden lg:block lg:w-[100%] lg:h-[50%]">
+    <i className="fa fa-circle mr-4 text-gray-300 lg:p-4 lg:hover:cursor-pointer" aria-hidden="true" onClick={()=>dispatch(allActions.enablePageAction(0))}></i>
+     <i className="fa fa-circle text-green-800 lg:p-4 lg:hover:cursor-pointer" aria-hidden="true"></i>
+</div>
       </div>
 
       {/*hiển thị danh sách bài hát*/}
       <div className={page==0 && enableAlbum==false?" col-span-1 list enable h-full":" col-span-1 list disable"}>
         
-      <div className="  grid grid-cols-2 place-items-center w-full h-full relative bg-fixed bg-center bg-cover bg-no-repeat p-3" >
+      <div className="  grid grid-cols-2 place-items-center w-full laptop:h-full lg:h-[80%] relative bg-fixed bg-center bg-cover bg-no-repeat p-3" >
        <div className="item  transform hover:scale-110 transition duration-300 relative">
       <img src="images/home.jpg" className={selectedItem==1?"image_of_list_light":"image_of_list"}  onClick={()=>{home()}} />
      <div className="detail"  onClick={()=>{home()}}><h4 className={selectedItem==1?"text-green-700":""}>Trang chủ</h4></div> 
@@ -238,11 +246,15 @@ var closeModalAlbum=()=>{
        </div>
 
       </div>
- 
+      <div className="laptop:hidden lg:block lg:w-[100%] lg:h-[50%]">
+    <i className="fa fa-circle lg:p-4 text-green-800 lg:hover:cursor-pointer" aria-hidden="true"></i>
+     <i className="fa fa-circle lg:p-4  text-gray-300 lg:hover:cursor-pointer" aria-hidden="true" onClick={()=>dispatch(allActions.enablePageAction(1))}></i>
+</div>
+
  </div>
  {/*album tự chọn */}
- <div className={page==0 && enableAlbum==true?"fixed w-[29%] ml-[2.1%] mt-[2.1%]":"disable"}>
-<i className="fa fa-chevron-left  left-12 bottom-0 hover:cursor-pointer text-yellow-100 hover:text-green-700" aria-hidden="true" onClick={()=>dispatch(allActions.enableAlbumAction(false))}></i>
+ <div className={page==0 && enableAlbum==true?"fixed w-[29%] ml-[2%] mt-[0px] flex p-[24px]":"disable"}>
+<i className="fa fa-chevron-left  left-12 bottom-0 mt-0 hover:cursor-pointer text-yellow-100 hover:text-green-700" aria-hidden="true" onClick={()=>dispatch(allActions.enableAlbumAction(false))}></i>
 <i class="fa fa-plus left-12 bottom-0 hover:cursor-pointer ml-80 text-yellow-100 hover:text-green-700" aria-hidden="true" onClick={()=>setEnableModalAlbum(true)}></i></div>
 
 
@@ -281,6 +293,10 @@ var closeModalAlbum=()=>{
 
    </div>
  </>
+
+
+
+
       </div>
     );
     

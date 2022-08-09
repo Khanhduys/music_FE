@@ -9,7 +9,7 @@ import LoginReduce from "./loginReduce";
 import enableAlbumReduce from "./enableCustomAlbumReduce";
 import albumReducer from "./albumReduce";
 import selecteAlbumReduce from "./selectedAlbumReduce";
-
+import enableMobileMenuReduce from "./enableMobileMenuReduce";
 const rootReducer=combineReducers({
   playSong:playSongReducer,
   listSong:listSongReducer,
@@ -21,6 +21,7 @@ const rootReducer=combineReducers({
   album:enableAlbumReduce,
   albumReducer:albumReducer,
   selectedAlbum:selecteAlbumReduce,
+  enableMobileMenu:enableMobileMenuReduce
   
 
 })

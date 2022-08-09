@@ -21,7 +21,13 @@ module.exports = {
       },
       margin:{
         "margin_top_search":"1.3rem"
+      },
+      screens: {
+       
+        'lg': {'max': '1000px'},
+        'laptop': '1024px'
       }
+    
       
     },
   },

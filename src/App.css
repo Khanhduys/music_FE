@@ -61,7 +61,9 @@
   display: none
 }
 
-
+.disableMenu {
+  animation: disable linear 0.5s forwards;
+}
 
 @keyframes enable {
   from {
@@ -77,13 +79,16 @@
 
 @keyframes disable {
   from {
+
+
+    width: 100%;
+    visibility: visible;
     opacity: 1;
-    margin-left: 0;
   }
 
   to {
-    opacity: 0;
-    margin-left: -100%;
+    transition: visibility 1s, opacity 1s linear;
+    width: 0;
   }
 }
 
@@ -192,7 +197,7 @@ image_of_list_light {
   border-radius: 3px;
   position: absolute;
   z-index: 3;
-  right: 2em;
+  right: 3%;
   border: 1px solid rgb(163, 159, 159);
 }
 
@@ -202,7 +207,15 @@ image_of_list_light {
   border: 5px solid;
   border-color: transparent transparent beige transparent;
   position: absolute;
-  right: 0.8em;
+  right: 15.5%;
+  top: -9px;
+}
+
+.more-action::after {
+  right: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
   top: -9px;
 }
 
